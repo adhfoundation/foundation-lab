@@ -1,0 +1,17 @@
+{
+  "name": "k6",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "k6 run dist/test.js",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/k6": "^0.54.2",
+    "typescript": "^5.7.3"
+  }
+}
