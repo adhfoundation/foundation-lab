@@ -13,22 +13,21 @@ jobs:
     runs-on: ubuntu-24.04
 
     steps:
-        # Step 1: Checkout o código do repositório
-        - name: Checkout repository
+      # Step 1: Checkout o código do repositório
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-        # Step 2: Instalar o K6
-        - name: Install K6
+      # Step 2: Instalar o K6
+      - name: Install K6
         run: |
-            sudo apt-get update
-            sudo apt-get install -y k6
+          sudo apt-get update
+          sudo apt-get install -y k6
 
-        # Step 3: Compilar os arquivos TypeScript
-        - name: Compile TypeScript
+      # Step 3: Compilar os arquivos TypeScript
+      - name: Compile TypeScript
         run: npx tsc --project tsconfig.json
 
-        # Step 3: Rodar os testes no K6
-        - name: Run K6 tests
-        # working-directory: ./k6/tests/load-tests
+      # Step 4: Rodar os testes no K6
+      - name: Run K6 tests
         run: |
-            k6 run k6/tests/load-tests/loadTestHome.ts
+          k6 run k6/tests/load-tests/loadTestHome.ts
