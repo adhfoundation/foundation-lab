@@ -16,7 +16,7 @@ jobs:
       # Step 1: Checkout o código do repositório
       - name: Checkout repository
         uses: actions/checkout@v3
-1
+
       # Step 2: Instalar o K6
       - name: Install K6
         run: |
