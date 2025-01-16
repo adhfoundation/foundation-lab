@@ -25,6 +25,6 @@ jobs:
 
       # Step 3: Rodar os testes no K6
       - name: Run K6 tests
-        working-directory: ./k6/tests/load-tests
+        # working-directory: ./k6/tests/load-tests
         run: |
-          k6 run loadTestHome.ts
+          k6 run k6/tests/load-tests/loadTestHome.ts
