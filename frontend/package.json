@@ -11,11 +11,11 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "playwright": "^1.49.1",
-    "typescript": "^5.7.3"
+    "playwright": "^1.49.1"
   },
   "devDependencies": {
     "@playwright/test": "^1.49.1",
-    "@types/node": "^22.10.6"
+    "@types/node": "^22.10.7",
+    "typescript": "^5.7.3"
   }
 }
