@@ -41,8 +41,4 @@ jobs:
 
       # Step 7: Executar os testes do Playwright
       - name: Frontend Tests
-        run: npx playwright test frontend/src/tests/homePageAfya.spec.ts --reporter=html
-
-      # Step 8: Gerar relatório em HTML
-      - name: Generate HTML Report
-        run: npx playwright show-report
+        run: npx playwright test frontend/src/tests/homePageAfya.spec.ts
