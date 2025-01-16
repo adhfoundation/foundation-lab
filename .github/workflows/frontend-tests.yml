@@ -27,18 +27,26 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Step 4: Instalar as dependências do Playwright
+      # Step 4: Instalar playwright 
+      - name: Install Playwright
+        run: npx playwright install
+
+      # Step 5: Instalar as dependências do Playwright
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
+      
+      # Step 6: Instalar Typescript
+      - name: Install Typescript
+        run: npm install typescript --save-dev
 
-      # Step 5: Compilar arquivos TypeScript
+      # Step 7: Compilar arquivos TypeScript
       - name: Compile TypeScript
         run: npx tsc --project tsconfig.json
 
-      # Step 6: Executar os testes do Playwright
+      # Step 8: Executar os testes do Playwright
       - name: Frontend Tests
         run: npx playwright test frontend/src/tests/homePageAfya.spec.ts --reporter=html
 
-      # Step 7: Gerar relatório em HTML
+      # Step 9: Gerar relatório em HTML
       - name: Generate HTML Report
         run: npx playwright show-report
