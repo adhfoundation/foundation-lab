@@ -1,4 +1,4 @@
-name: K6 Load Tests
+name: K6 Perfomance Tests
 
 on:
   push:
@@ -35,9 +35,9 @@ jobs:
         run: npx tsc --project k6/tsconfig.json
 
       # Step 4: Rodar os testes no K6
-      - name: K6 Load Tests
+      - name: K6 Perfomance Tests
         run: |
-          k6 run k6/tests/load-tests/loadTestHome.ts
+          k6 run k6\tests\performance-tests\performanceTest.ts
 
       # Step 5: Enviar relatório se o teste falhar
       - name: Send failure report
@@ -50,5 +50,5 @@ jobs:
               issue_number: context.payload.pull_request.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `🚨 *Falha nos testes de Carga* 🚨\n\nUm ou mais testes falharam durante a execução do workflow. Por favor, revise o log de execução para corrigir o problema.`
+              body: `🚨 *Falha nos testes de Performance* 🚨\n\nUm ou mais testes falharam durante a execução do workflow. Por favor, revise o log de execução para corrigir o problema.`
             });
