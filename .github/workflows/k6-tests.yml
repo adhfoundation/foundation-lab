@@ -7,6 +7,8 @@ on:
   pull_request:
     branches:
       - dev
+  schedule:
+    - cron: "0 * * * *"  # execução a cada 1 hora
 
 jobs:
   k6-tests:
@@ -36,3 +38,17 @@ jobs:
       - name: Run K6 tests
         run: |
           k6 run k6/tests/load-tests/loadTestHome.ts
+
+      # Step 5: Enviar relatório se o teste falhar
+      - name: Send failure report
+        if: failure()  # Apenas executa se um passo anterior falhar
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const failedStep = context.payload.workflow_run.jobs.find(job => job.conclusion === 'failure');
+            github.issues.createComment({
+              issue_number: context.payload.pull_request.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `🚨 **Falha nos testes K6** 🚨\n\nUm ou mais testes falharam durante a execução do workflow. Por favor, revise o log de execução para corrigir o problema.`
+            });
