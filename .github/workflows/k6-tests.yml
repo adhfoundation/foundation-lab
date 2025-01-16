@@ -50,5 +50,5 @@ jobs:
               issue_number: context.payload.pull_request.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `🚨 **Falha nos testes K6** 🚨\n\nUm ou mais testes falharam durante a execução do workflow. Por favor, revise o log de execução para corrigir o problema.`
+              body: `🚨 *Falha nos testes de Carga* 🚨\n\nUm ou mais testes falharam durante a execução do workflow. Por favor, revise o log de execução para corrigir o problema.`
             });
