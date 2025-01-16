@@ -5,7 +5,7 @@
       "strict": true,
       "esModuleInterop": true,
       "outDir": "./dist",
-      "lib": ["esnext"],
+      "lib": ["esnext", "es2015", "dom"],
       "types": ["@playwright/test", "node"]
     },
     "include": ["src/**/*"]
