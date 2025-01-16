@@ -7,15 +7,15 @@ test('check Afya homepage title', async ({ page }) => {
   //expect(title).toBe('Afya | Home');
 
   const menuAfya = page.locator('xpath=//div[@class="text-menu" and text()="Afya"]');
-  await menuAfya.waitFor();
+  await page.waitForTimeout(2000);
   await menuAfya.click();
 
   const menuQuemSomos = page.locator('xpath=//div[@class="text-size-regular" and text()="Quem somos"]');
-  await menuQuemSomos.waitFor();
+  await page.waitForTimeout(2000);
   await menuQuemSomos.click();
 
   const titleCodigoConduta = page.locator('h2.uui-heading-medium-5:text("Código de Conduta Afya")');
-  await titleCodigoConduta.waitFor();
+  await page.waitForTimeout(2000);
   const textoTitulo = await titleCodigoConduta.textContent();
   expect(textoTitulo?.trim()).toBe('Código de Conduta Afya');
 
