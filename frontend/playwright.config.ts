@@ -1,10 +1,11 @@
 import { defineConfig } from '@playwright/test';
+import path from 'path';
 
 export default defineConfig({
     use: {
-        headless: true, // Mostra o navegador
-        viewport: { width: 1280, height: 720 }, // Tamanho da janela do navegador
-        browserName: 'chromium', // 'chromium', 'firefox' ou 'webkit'
+        headless: true, // Executa o navegador em modo headless
+        viewport: { width: 1280, height: 720 },
+        browserName: 'chromium',
     },
-    testDir: './src/tests',
+    testDir: path.resolve(__dirname, './src/tests'), // Caminho dinâmico
 });
