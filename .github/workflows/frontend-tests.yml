@@ -41,4 +41,4 @@ jobs:
 
       # Step 7: Executar os testes do Playwright
       - name: Frontend Tests
-        run: npx playwright test frontend/src/tests/homePageAfya.spec.ts
+        run: npx playwright test frontend/src/tests/homePageAfya.test.ts
